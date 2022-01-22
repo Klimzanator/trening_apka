@@ -2,7 +2,7 @@ from dataclasses import fields
 from rest_framework import serializers
 from .models import Training
 
-class TrainingSerializers(serializers.ModelSerializer):
+class TrainingSerializers(serializers.ModelSerializer):       # serializers of Trening Models 
     class Meta:
         model = Training
         fields = [
@@ -12,4 +12,3 @@ class TrainingSerializers(serializers.ModelSerializer):
             "time",
             "date", 
         ]
-
