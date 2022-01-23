@@ -1,13 +1,12 @@
-from turtle import distance
-from unittest.util import _MAX_LENGTH
+from datetime import datetime
 from django.db import models
-from django.contrib.gis.measure import D, Distance
+from django.forms import forms, widgets
 
 class Training(models.Model):              # model of traingn objects  
     name = models.CharField(max_length=255)
-    distance = models.FloatField(default=0)
-    time = models.TimeField(default=0)
-    date = models.DateField(default=0)
+    distance = models.FloatField(blank = False) # by default it is given in kilometers 
+    time = models.FloatField(blank = False) # by default in minutes
+    date = models.DateField(blank=False)
 
 
     def __str__(self):

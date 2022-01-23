@@ -21,11 +21,13 @@ class TrainingDetail(generics.RetrieveUpdateDestroyAPIView):  # views of Trening
 
 
 @api_view(['GET'])       # endpoint view of the lognest distance traveled  
-def max_val(request):
+def statistics(request):
     
     if request.method == 'GET':
         maximum = Training.objects.aggregate(m=Max('distance')).get('m')  # function returns the lognest distance traveled 
-        return Response({"distancemax": maximum})  # making the JSON from get data 
+        time = Training.objects.all().aggregate(z=Avg('time')).get('z')  # function returns the average training time 
+        time_round = round(time,2)
+        return Response({"distancemax": maximum ,"avg_time":time_round})  # making the JSON from get data 
 
 
 

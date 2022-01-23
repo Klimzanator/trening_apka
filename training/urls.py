@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path("training/", views.TrainingList.as_view()),
     path("training/<int:pk>", views.TrainingDetail.as_view()),
-    path("training/stat/", views.max_val),
+    path("training/statistics/", views.statistics),
     
 ]
